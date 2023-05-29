@@ -50,8 +50,8 @@ def test_select_random_word_no_repetitions():
     assert len(secret_words) == 10
     
 def test_get_word():
-    secret_word = hangman.get_word("apartment")
-    assert secret_word == "_________ "
+     secret_word = hangman.get_word("elephant")
+     assert secret_word == "________"
 
 # def test_display_tries():
 #     try_check = hangman.display_tries(6)
@@ -69,7 +69,8 @@ def test_masked_word_noguess() :
 def test_masked_word_repeatedletters() :
     assert hangman.masked_word("elephant" , ["e"]) == "e_e_____"
 
-
+def test_masked_word_enter_repeat_letter() :
+    assert hangman.masked_word("elephant" , ["a","a"]) == "_____a__"
 
     
 
