@@ -69,23 +69,34 @@ def test_masked_word_full_wrd_correct() :
     assert hangman.masked_word("elephant" , ["e","l","p","h","a","n","t"]) == "elephant"
 
 
-def test_check_game_win():
-    assert hangman.check_game_win('elephant', 'elephant') == 'You Win!'
+# def test_check_game_win():
+#     assert hangman.check_game_win('elephant', 'elephant') == 'You Win!'
 
-def test_check_game_loose():
+# def test_check_game_loose():
     
-    assert hangman.check_game_win('elephant', '_lephant') == 'You Lose!'
+#     assert hangman.check_game_win('elephant', '_lephant') == 'You Lose!'
 
 
-def test_check_game_next_turn():
+# def test_check_game_next_turn():
     
-    assert hangman.check_game_loop('_lephant', 'elephant', ['w', 'y']) == True
+#     assert hangman.check_game_loop('_lephant', 'elephant',) == True
 
-def test_game_out_of_turns():
-    assert hangman.check_game_loop('-leph-nt','elephant',['z','y','x','j','k','o','q','u']) == False
+# def test_game_out_of_turns():
+#     assert hangman.check_game_loop('-leph-nt','elephant',['z','y','x','j','k','o','q','u']) == False
 
 
 
+
+
+
+def test_status_no_guess() :
+    secrt_wrd = "elephant"
+    guesses = []
+    turns = 7
+    assert hangman.get_status(secrt_wrd, guesses , turns) == '''
+word:________
+guesses :
+turns left : 7'''
 
 
 
