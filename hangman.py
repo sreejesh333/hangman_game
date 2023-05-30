@@ -31,14 +31,21 @@ def masked_word(word , guess) :
                 guess_wrd.append("_")
     
     return "".join(guess_wrd)
+
+def check_game_win(word , guess):
+    if word == guess:
+         return "You Win!"
+    else:
+         return "You Lose!"
             
 def update_word(secret_word,guesses,guess,turns) :
     if guess not in guesses :
         if guess not in secret_word  :
             turns -= 1
-            return turns
+            return True
         else :
-            return turns
+            
+            return False
         
 
 
