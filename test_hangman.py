@@ -78,6 +78,11 @@ def test_check_game_loose():
     assert hangman.check_game_win(word, '_lephant') == 'You Lose!'
 
 
+def test_check_game_next_turn():
+    word = 'elephant'
+    assert hangman.check_game_loop('_lephant', word, ['w', 'y']) == True
+
+
 
 
 
