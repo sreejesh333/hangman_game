@@ -75,6 +75,8 @@ def test_no_of_turns_on_incorrect_letter() :
 # def test_no_of_turns_on_correct_letters() :
 #     assert hangman.update_word("elephant" ,["e","l","a" ,"p" ,5]) == 5
 
+def test_noofturns_on_correct_letter() :
+    assert hangman.update_word("elephant" , ["q" , "e" , "a"] , "p" , 5) == 5
     
 
 
