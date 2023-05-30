@@ -73,6 +73,12 @@ def test_check_game_win():
     word = 'elephant'
     assert hangman.check_game_win(word, 'elephant') == 'You Win!'
 
+def test_check_game_loose():
+    word = "elephant"
+    assert hangman.check_game_win(word, '_lephant') == 'You Lose!'
+
+
+
 
 
 
