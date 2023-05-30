@@ -37,7 +37,13 @@ def check_game_win(word , guess):
          return "You Win!"
     else:
          return "You Lose!"
-            
+
+
+def check_game_loop(partial_word , word, guesses):
+    if partial_word != word:
+        return True
+    return False
+
 def update_word(secret_word,guesses,guess,turns) :
     if guess not in guesses :
         if guess not in secret_word  :
