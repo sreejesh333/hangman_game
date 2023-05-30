@@ -98,21 +98,39 @@ def test_status_no_guess() :
 def test_get_status_basic():
     secret_word = "elephant"
     guesses = ["p", "h", "v"]
-    turns_remaining = 3
-    hangman.get_status(secret_word, guesses, turns_remaining)
-    assert hangman.get_status(secret_word, guesses, turns_remaining) == """word:___ph___   guesses : p h v   turns_left : 3"""
+    turns = 3
+    hangman.get_status(secret_word, guesses, turns)
+    assert hangman.get_status(secret_word, guesses, turns) == """word:___ph___   guesses : p h v   turns_left : 3"""
 
 def test_check_already_guessed():
     word = "elephant"
     guesses = ["p", "t"]
-    turns_remaining = 5
+    turns = 5
     new_guess = "t"
-    status,turns_remaining = hangman.check(word, guesses, turns_remaining, new_guess)
+    status,turns = hangman.check(word, guesses, turns, new_guess)
     assert status == hangman.guessed
-    assert turns_remaining == 5
+    assert turns == 5
     assert guesses == ["p", "t"]
 
+def test_correct():
+    secret_word = "elephant"
+    guesses = ["l", "t"]
+    turns= 6
+    new_guess = "a"
+    status, turns = hangman.check(secret_word, guesses, turns, new_guess)
+    assert status == hangman.correct
+    assert turns == 6
+    assert guesses == ["l", "t", "a"]
 
+def test_check_wrong():
+    secret_word = "elephant"
+    guesses = ["l", "t", "a"]
+    turns= 6
+    new_guess = "m"
+    status, turns = hangman.check(secret_word, guesses, turns, new_guess)
+    assert status == hangman.wrong
+    assert turns == 5
+    assert guesses == ["l", "t", "a", "m"]
 
 
 
