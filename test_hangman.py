@@ -69,15 +69,10 @@ def test_masked_word_full_wrd_correct() :
     assert hangman.masked_word("elephant" , ["e","l","p","h","a","n","t"]) == "elephant"
 
 
-def test_no_of_turns_on_incorrect_letter() :
-    assert hangman.update_word("elephant" , ["x" , "z"],"m" , 5) == 4
+def test_check_game_win():
+    word = 'elephant'
+    assert hangman.check_game_win(word, 'elephant') == 'You Win!'
 
-# def test_no_of_turns_on_correct_letters() :
-#     assert hangman.update_word("elephant" ,["e","l","a" ,"p" ,5]) == 5
-
-def test_noofturns_on_correct_letter() :
-    assert hangman.update_word("elephant" , ["q" , "e" , "a"] , "p" , 5) == 5
-    
 
 
 
