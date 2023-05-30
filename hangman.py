@@ -22,9 +22,6 @@ def get_word(word) :
 
 
 
-def usr_input():
-    return input("enter the letter :").lower()
-
 def masked_word(word , guess) :
     guess_wrd = []
     for i in word :
@@ -65,67 +62,7 @@ def game(secret_word, guesses, turns_remaining):
         return True, f"You won... The word is {secret_word}"
 
 
-        
-
-
-
-
-
-
-# def play_hang(word) :
-#     wrd_completion = get_word(word)
-#     guessed = False
-#     guess_letter = []
-#     tried = 6
-#     print(wrd_completion)
-    
-#     while not guessed and tried > 0 :
-#         guess = usr_input()
-
-        
-#         if len(guess) == 1 and guess.isalpha() :
-#             if guess  in guess_letter :
-#                 print("already written letter")
-            
-#             elif guess not in word :
-#                 tried = display_tries(tried)
-#                 print("no of tries left :",tried)
-#                 print(wrd_completion)
-#                 guess_letter.append(guess)
-            
-#             else :
-#                 guess_letter.append(guess)
-#                 wrd_list = list(wrd_completion)
-#                 indexnum = []
-#                 for i , letter in enumerate(word) :
-#                     if letter == guess :
-#                         indexnum.append(i)
-#                 for index in indexnum :
-#                     wrd_list[index*2] = guess
-#                     wrd_completion = "".join(wrd_list)
-#                     if "_" not in wrd_completion :
-#                         guessed = True
-#                         # print(guessed)
-#                 print(wrd_completion)
-                
-        
-
-#         else :
-#             print("wrong guess")
-#             print(wrd_completion)
-#             print("\n")
-
-
-#     if guessed == True :
-#         print("u guessed right ...the word is :"+word)
-
-        
-#     else :
-#         print("sorry u loose , the word is :"+ word )
-
        
-    
-   
    
 
 def main():
