@@ -100,11 +100,17 @@ def test_get_status_basic():
     guesses = ["p", "h", "v"]
     turns_remaining = 3
     hangman.get_status(secret_word, guesses, turns_remaining)
-    assert hangman.get_status(secret_word, guesses, turns_remaining) == """Secret word:___ph___
-Guesses : p h v
-Remaining turns : 3"""
+    assert hangman.get_status(secret_word, guesses, turns_remaining) == """word:___ph___   guesses : p h v   turns_left : 3"""
 
-
+def test_check_already_guessed():
+    word = "elephant"
+    guesses = ["p", "t"]
+    turns_remaining = 5
+    new_guess = "t"
+    status,turns_remaining = hangman.check(word, guesses, turns_remaining, new_guess)
+    assert status == hangman.guessed
+    assert turns_remaining == 5
+    assert guesses == ["p", "t"]
 
 
 
