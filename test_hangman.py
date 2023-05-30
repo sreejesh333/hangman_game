@@ -133,6 +133,13 @@ def test_check_wrong():
     assert guesses == ["l", "t", "a", "m"]
 
 
+def test_game_won():
+    word = "elephant"
+    guesses = ["e", "l", "e", "p", "h" , "a" , "n" , "t"]
+    turns = 5
+    finished, message = hangman.game(word, guesses, turns)
+    assert finished
+    assert message == "You guessed it! The word was rabbit"
 
 
 
