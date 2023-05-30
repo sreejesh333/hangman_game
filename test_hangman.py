@@ -70,17 +70,19 @@ def test_masked_word_full_wrd_correct() :
 
 
 def test_check_game_win():
-    word = 'elephant'
-    assert hangman.check_game_win(word, 'elephant') == 'You Win!'
+    assert hangman.check_game_win('elephant', 'elephant') == 'You Win!'
 
 def test_check_game_loose():
-    word = "elephant"
-    assert hangman.check_game_win(word, '_lephant') == 'You Lose!'
+    
+    assert hangman.check_game_win('elephant', '_lephant') == 'You Lose!'
 
 
 def test_check_game_next_turn():
-    word = 'elephant'
-    assert hangman.check_game_loop('_lephant', word, ['w', 'y']) == True
+    
+    assert hangman.check_game_loop('_lephant', 'elephant', ['w', 'y']) == True
+
+def test_game_out_of_turns():
+    assert hangman.check_game_loop('-leph-nt','elephant',['z','y','x','j','k','o','q','u']) == False
 
 
 
