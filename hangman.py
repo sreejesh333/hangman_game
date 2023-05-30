@@ -16,10 +16,6 @@ def get_word(word) :
 
     return len_wrds
 
-def display_tries(tries):
-    
-    tries -= 1
-    return tries
 
 
 def usr_input():
@@ -30,13 +26,21 @@ def masked_word(word , guess) :
     for i in word :
             if i in guess :
                 guess_wrd.append(i) 
-            # elif i not in guess :
-            #     guess_wrd.append("_")   
+            
             else :
                 guess_wrd.append("_")
     
     return "".join(guess_wrd)
             
+def update_word(secret_word,guesses,guess,turns) :
+    if guess not in guesses :
+        if guess not in secret_word  :
+            turns -= 1
+            return turns
+        else :
+            return turns
+        
+
 
 
 
