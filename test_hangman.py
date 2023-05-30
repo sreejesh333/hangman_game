@@ -93,10 +93,16 @@ def test_status_no_guess() :
     secrt_wrd = "elephant"
     guesses = []
     turns = 7
-    assert hangman.get_status(secrt_wrd, guesses , turns) == '''
-word:________
-guesses :
-turns left : 7'''
+    assert hangman.get_status(secrt_wrd, guesses , turns) == '''word:________   guesses :    turns_left : 7'''
+
+def test_get_status_basic():
+    secret_word = "elephant"
+    guesses = ["p", "h", "v"]
+    turns_remaining = 3
+    hangman.get_status(secret_word, guesses, turns_remaining)
+    assert hangman.get_status(secret_word, guesses, turns_remaining) == """Secret word:___ph___
+Guesses : p h v
+Remaining turns : 3"""
 
 
 
