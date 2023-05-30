@@ -135,13 +135,18 @@ def test_check_wrong():
 
 def test_game_won():
     word = "elephant"
-    guesses = ["e", "l", "e", "p", "h" , "a" , "n" , "t"]
+    guesses = ["e", "l", "p", "h" , "a" , "n" , "t"]
     turns = 5
-    finished, message = hangman.game(word, guesses, turns)
-    assert finished
-    assert message == "You guessed it! The word was rabbit"
+    message = hangman.game(word, guesses, turns)
+    assert message == "You won... The word is elephant"
 
-
+def test_game_lost():
+    word = "elephant"
+    guesses = ["e", "l", "p", "h" , "a" , "n" , "t"]
+    turns = 0
+    message = hangman.game(word, guesses, turns)
+    
+    assert message == "You lost... The word is elephant"
 
 
 
