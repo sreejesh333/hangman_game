@@ -66,12 +66,23 @@ def game(secret_word, guesses, turns_remaining):
    
 
 def main():
-    word = get_random_word()
-    play_hang(word)
-    
-    while input("do u want a continue (y/n):") == 'y' :
-        word =  get_random_word()
-        play_hang(word)
+    secret_word = get_random_word()
+    print (secret_word)
+    guesses = []
+    turns_remaining = 8
+    while True:
+        print (get_status(secret_word, guesses, turns_remaining))
+        guess = input("Enter a letter ")
+        
+        status, turns_remaining = check(secret_word, guesses, turns_remaining, guess)
+        if status == guessed:
+            print ("You already guessed that")
+        
+        finished, message = game(secret_word, guesses, turns_remaining)
+        if message:
+            print (message)
+        if finished:
+            break
 
     
 if __name__ == "__main__":
