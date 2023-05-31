@@ -122,16 +122,17 @@ def test_game_won():
     word = "elephant"
     guesses = ["e", "l", "p", "h" , "a" , "n" , "t"]
     turns = 5
-    message = hangman.game(word, guesses, turns)
-    assert message == "You won... The word is elephant"
+    finished,message = hangman.game(word, guesses, turns)
+    assert finished
+    assert message == "You won...The word is elephant"
 
 def test_game_lost():
     word = "elephant"
     guesses = ["e", "l", "p", "h" , "a" , "n" , "t"]
     turns = 0
-    message = hangman.game(word, guesses, turns)
-    
-    assert message == "You lost... The word is elephant"
+    finished,message = hangman.game(word, guesses, turns)
+    assert finished
+    assert message == "You lost...The word is elephant"
 
 
 
