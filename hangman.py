@@ -17,8 +17,8 @@ def get_random_word(wordfile = "/usr/share/dict/words"):
 
 def get_word(word) :
     len_wrds = "_" * len(word)
-
     return len_wrds
+
 
 
 
@@ -30,7 +30,6 @@ def masked_word(word , guess) :
             
             else :
                 guess_wrd.append("_")
-    
     return "".join(guess_wrd)
 
 
@@ -54,20 +53,17 @@ def check(secret_word, guesses, turns_remaining, new_guess):
 
 def game(secret_word, guesses, turns_remaining):
     if turns_remaining == 0:
-        return True, f"You lost! The word was {secret_word}"
+        return True, f"You lost... The word is {secret_word}"
     masked = masked_word(secret_word, guesses)
-    if "-" in masked:
+    if "_" in masked:
         return False, None
     else:
         return True, f"You won... The word is {secret_word}"
 
 
-       
-   
-
+    
 def main():
     secret_word = get_random_word()
-    print (secret_word)
     guesses = []
     turns_remaining = 8
     while True:
@@ -84,9 +80,10 @@ def main():
         if finished:
             break
 
-    
+
 if __name__ == "__main__":
     main()
+            
 
 
 
